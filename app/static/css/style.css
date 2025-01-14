@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+form {
+    margin-bottom: 20px;
+}
+input, button {
+    padding: 10px;
+    margin: 5px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+#container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+#add-form, #upload-form {
+    width: 45%;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+#add-form {
+    border-right: 1px solid #ddd;
+    margin-right: 10px;
+}
+#upload-form {
+    margin-left: 10px;
+}
+#query-form {
+    margin: 0 auto;
+    width: 50%;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+#output, #upload-status {
+    margin-top: 20px;
+    text-align: center;
+    color: green;
+}
+button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 200px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+input {
+    width: calc(100% - 22px);
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center; 
+    margin-top: 20px;
+}

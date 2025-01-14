@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Graph Application</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Knowledge Graph Application</h1>
+    <div id="container">
+    <form id="add-form">
+        <p>Enter source entity : 
+            <input type="text" id="source" placeholder="Source Entity" required> 
+        </p>
+        <p> Enter Relation type : 
+            <input type="text" id="relation" placeholder="Relation Type" required>
+        </p>
+        <p> Enter target entity : 
+            <input type="text" id="target" placeholder="Target Entity" required>
+        </p>
+        <button type="submit">Add Relationship</button>
+    </form>
+
+    
+    <form id="upload-form" enctype="multipart/form-data">
+        <label for="file-upload">Upload Dataset (CSV/JSON):</label>
+        <input type="file" id="file-upload" name="file" accept=".csv, .json">
+        <button type="submit">Upload</button>
+        <div id="upload-status"></div>
+    </form>
+</div>
+<form id="query-form">
+    <input type="text" id="query-entity" placeholder="Enter Entity" required>
+    <button type="submit">Query</button>
+</form>
+    
+    <div id="output"></div>
+    
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
