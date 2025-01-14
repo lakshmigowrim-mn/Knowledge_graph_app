@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <h1>Knowledge Graph Application</h1>
+    <header>
+        <h1><i class="fas fa-project-diagram"></i> Knowledge Graph App</h1>
+    </header>
+    <br>
     <div id="container">
     <form id="add-form">
         <p>Enter source entity : 
@@ -26,13 +29,13 @@
     <form id="upload-form" enctype="multipart/form-data">
         <label for="file-upload">Upload Dataset (CSV/JSON):</label>
         <input type="file" id="file-upload" name="file" accept=".csv, .json">
-        <button type="submit">Upload</button>
+        <button type="submit" id="upload-button">Upload</button>
         <div id="upload-status"></div>
     </form>
 </div>
 <form id="query-form">
     <input type="text" id="query-entity" placeholder="Enter Entity" required>
-    <button type="submit">Query</button>
+    <button type="submit" id="query-button">Query</button>
 </form>
     
     <div id="output"></div>
