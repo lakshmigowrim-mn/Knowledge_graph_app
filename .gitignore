@@ -10,8 +10,7 @@ env/
 ENV/
 .venv
 
-# IDE
-.vscode/
+# IDE (excluding mcp.json which is part of the project)
 .idea/
 *.swp
 *.swo
@@ -37,3 +36,8 @@ build/
 
 # MCP Server outputs
 mcp_servers/checkmarx/*_scan_report.json
+
+# Diagnostic Agent outputs
+diagnostic_reports/
+*_diagnostic.json
+*_diagnostic.md

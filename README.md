@@ -1,6 +1,6 @@
 # Knowledge Graph Application
 
-This repository contains a Knowledge Graph application with Flask backend and additional MCP (Model Context Protocol) servers for various integrations.
+This repository contains a Knowledge Graph application with Flask backend, Checkmarx MCP server integration, and an advanced Agentic Diagnostic Layer for intelligent security upgrade guidance.
 
 ## Components
 
@@ -28,15 +28,88 @@ python app.py
 ### 2. Checkmarx AST MCP Server
 Located in `/mcp_servers/checkmarx` directory.
 
-An MCP server that provides programmatic access to Checkmarx Application Security Testing (AST) platform.
+An MCP server that provides programmatic access to Checkmarx Application Security Testing (AST) platform at `https://ast.checkmarx.net/applicationsAndProjects/`.
 
 **Features:**
 - Get project information from Checkmarx AST
 - Retrieve scan results and reports
 - Query latest scan status
 - Support for OAuth and API key authentication
+- VSCode integration via `.vscode/mcp.json`
 
-**Quick Start:**
+### 3. 🚀 Agentic Diagnostic Layer (NEW)
+Located in `/diagnostic_agent` directory.
+
+**An intelligent diagnostic system that revolutionizes security vulnerability remediation by providing data-driven upgrade guidance.**
+
+#### Key Features:
+
+**📊 Changelog Intelligence**
+- Uses LLM-like analysis to parse release notes
+- Extracts specific breaking changes (functions, classes, variables)
+- Categorizes by severity (high, medium, low)
+
+**🎯 Reachability Mapping**
+- Runs high-speed local analysis using ripgrep
+- Checks if breaking identifiers exist in `/src` and `/app`
+- Maps impacts to specific files and locations
+
+**💯 Migration Effort Scoring**
+- Generates a 1-100 score based on:
+  - Version Delta (semantic versioning analysis)
+  - Local Code Impact (number of affected occurrences)
+  - Breaking Changes Count and Severity
+- Provides risk levels: Low, Medium, High, Critical
+
+**🛡️ Risk Mitigation**
+- Replaces "Blind Upgrades" with "Auditable Upgrades"
+- Ensures security patches don't compromise system stability
+- Provides detailed testing strategies
+
+**📈 Resource Optimization**
+- Accurate effort estimation in hours
+- Sprint point allocation based on migration score
+- Data-driven capacity planning for teams
+
+**Running the Diagnostic Agent:**
+
+```bash
+# Set Checkmarx credentials
+export CHECKMARX_API_KEY="your-api-key"
+
+# Run the complete diagnostic analysis
+cd diagnostic_agent
+python run_diagnostic.py --project user-access-management
+
+# This will:
+# 1. Fetch latest scan from Checkmarx AST
+# 2. Analyze breaking changes in dependencies
+# 3. Map code impacts using ripgrep
+# 4. Calculate migration effort scores
+# 5. Generate actionable reports (JSON + Markdown)
+```
+
+**Example Output:**
+```
+================================================================================
+🔍 AGENTIC DIAGNOSTIC LAYER
+================================================================================
+
+Migration Score: 45/100 ⚠️ MEDIUM RISK
+Estimated Effort: 6.5 hours (45 migration points)
+
+Breaking Changes Found: 3
+Code Impacts: 12 occurrences across 4 files
+
+Recommendations:
+  ⚠️ HIGH RISK: Extensive testing recommended
+  📝 Action Required: Update 2 affected code locations
+  ⏱️ Recommended Sprint Allocation: 3 story points
+
+Reports saved to: diagnostic_reports/
+```
+
+**Checkmarx MCP Server Quick Start:**
 ```bash
 cd mcp_servers/checkmarx
 
@@ -45,24 +118,10 @@ pip install -r requirements.txt
 
 # Set authentication credentials
 export CHECKMARX_API_KEY="your-api-key"
-# OR
-export CHECKMARX_CLIENT_ID="your-client-id"
-export CHECKMARX_CLIENT_SECRET="your-client-secret"
 
 # Run the coding agent to get latest scan report
 python agent.py
 ```
-
-**Example - Get latest scan report for user-access-management project:**
-```bash
-cd mcp_servers/checkmarx
-python agent.py
-```
-
-This will:
-1. Connect to Checkmarx AST at `https://ast.checkmarx.net`
-2. Authenticate using your credentials
-3. Retrieve the latest scan for `user-access-management` project
 4. Display a formatted report
 5. Save the full report to a JSON file
 

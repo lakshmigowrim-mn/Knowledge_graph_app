@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "checkmarx-ast": {
+      "command": "python",
+      "args": ["mcp_servers/checkmarx/server.py"],
+      "env": {
+        "CHECKMARX_API_KEY": "${env:CHECKMARX_API_KEY}",
+        "CHECKMARX_CLIENT_ID": "${env:CHECKMARX_CLIENT_ID}",
+        "CHECKMARX_CLIENT_SECRET": "${env:CHECKMARX_CLIENT_SECRET}"
+      },
+      "description": "Checkmarx AST MCP Server for security scanning at https://ast.checkmarx.net/applicationsAndProjects/"
+    }
+  }
+}
