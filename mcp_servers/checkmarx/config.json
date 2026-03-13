@@ -1,0 +1,51 @@
+{
+  "name": "checkmarx-ast-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP Server for Checkmarx Application Security Testing",
+  "server": {
+    "command": "python",
+    "args": ["server.py"],
+    "env": {
+      "CHECKMARX_API_KEY": "${CHECKMARX_API_KEY}",
+      "CHECKMARX_CLIENT_ID": "${CHECKMARX_CLIENT_ID}",
+      "CHECKMARX_CLIENT_SECRET": "${CHECKMARX_CLIENT_SECRET}"
+    }
+  },
+  "api": {
+    "base_url": "https://ast.checkmarx.net",
+    "endpoints": {
+      "authentication": "/identity/connect/token",
+      "projects": "/api/projects",
+      "scans": "/api/scans",
+      "scan_results": "/api/scans/{scan_id}/results",
+      "scan_summary": "/api/scans/{scan_id}/summary"
+    }
+  },
+  "methods": [
+    {
+      "name": "get_latest_scan_report",
+      "description": "Get the latest scan report for a project",
+      "params": {
+        "project_name": "string (required) - Name of the project"
+      }
+    },
+    {
+      "name": "get_projects",
+      "description": "Get list of all projects",
+      "params": {}
+    },
+    {
+      "name": "get_project",
+      "description": "Get details of a specific project",
+      "params": {
+        "project_name": "string (required) - Name of the project"
+      }
+    }
+  ],
+  "examples": {
+    "user_access_management_report": {
+      "project": "user-access-management",
+      "command": "python agent.py"
+    }
+  }
+}
